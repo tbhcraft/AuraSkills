@@ -6,6 +6,7 @@ plugins {
     id("io.papermc.hangar-publish-plugin") version "0.1.2"
     id("com.modrinth.minotaur") version "2.+"
     id("xyz.jpenilla.run-paper") version "2.3.1"
+    id("io.github.apdevteam.github-packages") version "1.2.2"
 }
 
 java {
@@ -30,6 +31,7 @@ repositories {
     maven("https://repo.nexomc.com/releases/")
     maven("https://repo.papermc.io/repository/maven-public/")
     mavenLocal()
+    maven { githubPackage("apdevteam/movecraft")(this)}
 }
 
 dependencies {
@@ -64,6 +66,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.13.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    compileOnly("net.countercraft:movecraft:+")
 }
 
 val compiler = javaToolchains.compilerFor {
